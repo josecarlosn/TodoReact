@@ -1,11 +1,16 @@
 import './App.css'
-import Navbar from './Navbar/Navbar'
+import AddButton from './components/AddButton/AddButton'
+import AddModal from './components/AddModal/AddModal'
+
+import Navbar from './components/Navbar/Navbar'
+
 
 function App() {
   return (
     <>
         <div className="bg-white h-screen flex justify-center items-center w-full">
           <Navbar/>
+          <AddModal/>        
         </div>
     </>
   )
