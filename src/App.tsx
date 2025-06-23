@@ -1,11 +1,12 @@
 import './App.css'
+import Navbar from './Navbar/Navbar'
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+        <div className="bg-white h-screen flex justify-center items-center w-full">
+          <Navbar/>
+        </div>
     </>
   )
 }
