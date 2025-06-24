@@ -3,7 +3,8 @@ import { useState } from 'react';
 import AddButton from '../Buttons/AddButton/AddButton';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
 import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
-
+import './AddModal.css'
+import discart from "../../assets/audio/discart.mp3"
 export interface IAddModalProps {
 }
 
@@ -11,13 +12,15 @@ export default function App (props: IAddModalProps) {
     const [modalVisibility, setModalVisibility] = useState(false)
     let [title, setTitle] = useState<string>("");
     let [description, setDescription] = useState<string>("");
-    const visibilityClass: String = "hidden"
+    const visibilityClass: string = "hidden"
+
   return (
     <>
+      <audio src="../../audio/discart.mp3">aaaaaaa</audio>
         <div>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
         </div>
-        <div className={`${modalVisibility ? "" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>
+        <div className={`${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>
           <div className="bg-white h-screen m-2">
             <div className='border-b-1 border-stone-400'>
               <input maxLength={50} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
@@ -29,10 +32,10 @@ export default function App (props: IAddModalProps) {
           </div>
             <div className='flex justify-end m-2 bg-white'><p className='text-[0.7rem] text-stone-600'>{description.length}/155</p></div>
           <div className="flex justify-between m-2">
-            <CloseModal name="Cancel" closeCreateModal={()=>{
+            <CloseModal name="Discart" closeCreateModal={()=>{
               setModalVisibility(false);
               setTitle("");
-              setDescription("");
+              setDescription("");  
               }
               }/>
             <CreateTaskButton name="Create Task"/>

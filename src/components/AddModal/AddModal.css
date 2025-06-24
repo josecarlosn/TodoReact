@@ -1,0 +1,15 @@
+.in{
+    opacity: 0;
+    animation: in 0.7s ease forwards;
+}
+.out{
+    animation: out 0.7s ease forwards;
+}
+@keyframes in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
