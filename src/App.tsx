@@ -1,5 +1,5 @@
 import './App.css'
-import AddButton from './components/AddButton/AddButton'
+import AddButton from './components/Buttons/AddButton/AddButton'
 import AddModal from './components/AddModal/AddModal'
 
 import Navbar from './components/Navbar/Navbar'
