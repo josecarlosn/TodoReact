@@ -12,11 +12,6 @@ export default function App (props: IAddModalProps) {
     const [title, setTitle] = useState<string>("");
     let [description, setDescription] = useState<string>("");
 
-    const taskBody: Object = {
-      title: title,
-      description: description
-    }
-
     const visibilityClass: string = "hidden"
 
   return (
@@ -24,7 +19,8 @@ export default function App (props: IAddModalProps) {
         <div>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
         </div>
-        <div className={`${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>
+        <form method='post' className={`${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
+          
           <div className="bg-white h-screen m-2">
             <div className='border-b-1 border-stone-400'>
               <input maxLength={50} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
@@ -42,9 +38,13 @@ export default function App (props: IAddModalProps) {
               setDescription("");  
               }
               }/>
-            <CreateTaskButton name="Create Task" title={title} description={description}/>
+            <CreateTaskButton closeCreateModel = {()=>{
+              setModalVisibility(false);
+              setTitle("");
+              setDescription("");  
+            }} name="Create Task" title={title} description={description}/>
           </div>
-        </div>
+        </form>
     </>
   );
 }
