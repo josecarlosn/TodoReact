@@ -4,6 +4,7 @@ import AddButton from '../Buttons/AddButton/AddButton';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
 import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
 import './AddModal.css'
+import Task from '../Task/Task';
 export interface IAddModalProps {
 }
 
@@ -16,9 +17,14 @@ export default function App (props: IAddModalProps) {
 
   return (
     <>
-        <div>
+        <div className='absolute top-1/5'>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
         </div>
+
+        <section className='bg-blue-50 w-100 h-100 flex '>
+          <Task/>
+        </section>
+
         <form  method='post' className={`bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
           
           <div className="bg-white h-screen m-2">
