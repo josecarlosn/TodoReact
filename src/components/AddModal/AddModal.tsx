@@ -4,19 +4,23 @@ import AddButton from '../Buttons/AddButton/AddButton';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
 import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
 import './AddModal.css'
-import discart from "../../assets/audio/discart.mp3"
 export interface IAddModalProps {
 }
 
 export default function App (props: IAddModalProps) {
     const [modalVisibility, setModalVisibility] = useState(false)
-    let [title, setTitle] = useState<string>("");
+    const [title, setTitle] = useState<string>("");
     let [description, setDescription] = useState<string>("");
+
+    const taskBody: Object = {
+      title: title,
+      description: description
+    }
+
     const visibilityClass: string = "hidden"
 
   return (
     <>
-      <audio src="../../audio/discart.mp3">aaaaaaa</audio>
         <div>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
         </div>
@@ -38,7 +42,7 @@ export default function App (props: IAddModalProps) {
               setDescription("");  
               }
               }/>
-            <CreateTaskButton name="Create Task"/>
+            <CreateTaskButton name="Create Task" title={title} description={description}/>
           </div>
         </div>
     </>

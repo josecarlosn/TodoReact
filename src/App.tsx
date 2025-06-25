@@ -1,16 +1,14 @@
-import './App.css'
-import AddButton from './components/Buttons/AddButton/AddButton'
-import AddModal from './components/AddModal/AddModal'
-import api from './services/api'
-import Navbar from './components/Navbar/Navbar'
 import { useEffect } from 'react'
-
+import './App.css'
+import AddModal from './components/AddModal/AddModal'
+import Navbar from './components/Navbar/Navbar'
+import { useTask } from './hooks/useTask'
 
 function App() {
+  const {fetchTasks} = useTask()
   useEffect(()=>{
-    api.get("/tasks")
-    .then(response => console.log(response))
-  })
+    fetchTasks()
+  }, [])
   return (
     
     <>
