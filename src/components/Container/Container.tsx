@@ -3,12 +3,12 @@ import { useState } from 'react';
 import AddButton from '../Buttons/AddButton/AddButton';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
 import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
-import './AddModal.css'
-import Task from '../Task/Task';
-export interface IAddModalProps {
+import './Container.css'
+import { Accordion } from '../Accordion/Accordion';
+export interface IContainerProps {
 }
 
-export default function App (props: IAddModalProps) {
+export default function Container (props: IContainerProps) {
     const [modalVisibility, setModalVisibility] = useState(false)
     const [title, setTitle] = useState<string>("");
     let [description, setDescription] = useState<string>("");
@@ -16,16 +16,14 @@ export default function App (props: IAddModalProps) {
     const [alert, setAlert] = useState("hidden")
 
   return (
-    <>
-        <div className='absolute top-1/5'>
+    <div className='flex flex-col items-center'>
+        <div className='m-10 '>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
         </div>
 
-        <section className='bg-blue-50 w-100 h-100 flex '>
-          <Task/>
-        </section>
+        <Accordion/>
 
-        <form  method='post' className={`bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
+        <form  method='post' className={` bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
           
           <div className="bg-white h-screen m-2">
             <div className='border-b-1 border-stone-400'>
@@ -60,6 +58,6 @@ export default function App (props: IAddModalProps) {
           </div>
         </form>
         
-    </>
+    </div>
   );
 }
