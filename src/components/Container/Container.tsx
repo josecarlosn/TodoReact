@@ -1,20 +1,27 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddButton from '../Buttons/AddButton/AddButton';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
 import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
 import './Container.css'
 import { Accordion } from '../Accordion/Accordion';
+import { useTaskContext } from '../../Context/TaskContext';
+
 export interface IContainerProps {
 }
 
 export default function Container (props: IContainerProps) {
     const [modalVisibility, setModalVisibility] = useState(false)
     const [title, setTitle] = useState<string>("");
-    let [description, setDescription] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
     const visibilityClass: string = "hidden"
     const [alert, setAlert] = useState("hidden")
 
+    const {tasks} = useTaskContext();
+
+    useEffect(()=>{
+      console.log(tasks)
+    },[])
   return (
     <div className='flex flex-col items-center'>
         <div className='m-10 '>

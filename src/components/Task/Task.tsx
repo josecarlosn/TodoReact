@@ -5,19 +5,20 @@ export interface ITaskProps {
   title: String;
   description: String;
   toggle: any;
-  index: number;
+  id: number;
   activeIndex: any;
 }
 
 export default function Task (props: ITaskProps) {
-const [isCheck, setIsCheck] = useState("");
+  const [isCheck, setIsCheck] = useState("");
   return (
     <>
-      <div className={`bg-white w-100 h-auto m-1  mt-2 shadow-sm rounded-xl  ${isCheck} self-start`}>
+      <div className={`bg-white w-100 h-auto m-1  mt-2 shadow-sm rounded-xl ${isCheck} self-start`}>
 
-        <div key={props.index}   className='flex flex-row justify-between h-14 p-0 cursor-pointer ' >
+        <div  className='flex flex-row justify-between h-14 p-0 cursor-pointer ' >
             <div  className='flex flex-row gap-1'>
                 <div className='flex items-center m-2'>
+                  {props.id}
                     <input className='box' type="checkbox" name="" id="" /> 
                 </div>
 
@@ -39,8 +40,8 @@ const [isCheck, setIsCheck] = useState("");
 
           
             </div>
-              <div key={props.index} className="">
-              {props.activeIndex === props.index && (
+              <div className="">
+              {props.activeIndex === props.id && (
                   <div className="px-4 py-2 text-gray-700 bg-white ">
                       {props.description}
                   </div>

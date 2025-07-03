@@ -1,29 +1,31 @@
+import { useTaskContext } from '../../../Context/TaskContext';
+import type TaskType from '../../../Types/TaskType';
 import buttonStyle from '../../GlobalStyles';
-import { useTask } from '../../../hooks/useTask';
 import GlobalStyles from '../../GlobalStyles';
 import { useState } from 'react';
 
 export interface ICreateTaskButtonProps {
     name: string;
-    title: String;
-    description: String;
+    title: string;
+    description: string;
     closeCreateModel: any;
     showAlert: any;
 }
 
 export default function SaveTaskButton (props: ICreateTaskButtonProps) {
   
-  const {createTask} = useTask();
-  
   const [buttonLocked, setButtonLocked] = useState<Boolean>(false);
+  const {createTask} = useTaskContext()
   const handleClick = async (title: String)=> {
+  
   
     if(title != ""){
       props.showAlert()
       setButtonLocked(true);
-      const task: Object = {
-      title: props.title,
-      description: props.description
+      const task: Omit<TaskType, "id" | "createdAt"> = {
+        title: props.title,
+        description: props.description,
+        completed: false
       } 
       await createTask(task)
       setButtonLocked(false);
