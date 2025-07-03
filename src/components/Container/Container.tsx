@@ -31,7 +31,6 @@ export default function Container (props: IContainerProps) {
         <Accordion/>
 
         <form  method='post' className={` bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
-          
           <div className="bg-white h-screen m-2">
             <div className='border-b-1 border-stone-400'>
               

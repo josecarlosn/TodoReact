@@ -8,7 +8,7 @@ interface TaskContextType{
     fetchTasks: () => Promise<void>,
     deleteTask: (id:number) => Promise<void>,
     createTask: (task: Omit<TaskType, "id" | "createdAt">) => Promise<void>,
-    // updateTask: (id: number, task: Partial<Omit<TaskType, "id" | "createdAt">>) => Promise<void>
+    updateTask: (id: number, task: Partial<Omit<TaskType, "id" | "createdAt">>) => Promise<void>
 }
 //Preciso criar um Contexto e um Provider
 
@@ -33,18 +33,27 @@ export const TaskProvider = ({children}:{children: ReactNode}) =>{
         .catch((error)=>{console.log("Erro de requisição post" + error)})
     }
     const deleteTask = async (id: number) => {
-        api.delete(`/delete/${id}`)
+        await api.delete(`/delete/${id}`)
         .then(()=>{
             console.log(`Tarefa com o id: ${id} deletada.`);
             fetchTasks();
         })
         .catch((error)=>console.log("Erro ao deletar tarefa: " + error))
     }
+    const updateTask = async (id: number, task: Partial<Omit<TaskType, "id" | "createdAt">>) => {
+        await api.put(`/update/${id}`)
+        .then(()=>{
+            console.log(`Tarefa de ID: ${id}, atualizada com sucesso!`);
+            fetchTasks()
+        })
+        .catch((error)=>console.log("Erro ao atualizar a tarefa: " + error))
+    }
+    
      useEffect(()=>{
         fetchTasks()
     }, [])
 
-    return <TaskContext.Provider value={{tasks, fetchTasks, createTask, deleteTask}}>{children}</TaskContext.Provider>
+    return <TaskContext.Provider value={{tasks, fetchTasks, createTask, deleteTask, updateTask}}>{children}</TaskContext.Provider>
 }
 export const useTaskContext = () => {
     const context = useContext(TaskContext);
