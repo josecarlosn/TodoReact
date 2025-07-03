@@ -1,7 +1,6 @@
 import { useTaskContext } from '../../../Context/TaskContext';
 import type TaskType from '../../../Types/TaskType';
 import buttonStyle from '../../GlobalStyles';
-import GlobalStyles from '../../GlobalStyles';
 import { useState } from 'react';
 
 export interface ICreateTaskButtonProps {
