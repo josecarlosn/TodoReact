@@ -7,11 +7,11 @@ export interface IAppProps {
 }
 
 export default function App (props: IAppProps) {
-  
+
   return (
-    
+      
       <>
-        <button onClick={props.openCreateModal}
+        <button onClick={props.openCreateModal }
             type='button'
             className={`flex ${buttonStyle} bg-blue-600  hover:bg-blue-800`} 
          >

@@ -1,3 +1,4 @@
+import { useEditContext } from '../../../Context/EditContext';
 import { useTaskContext } from '../../../Context/TaskContext';
 import type TaskType from '../../../Types/TaskType';
 import buttonStyle from '../../GlobalStyles';
@@ -15,6 +16,7 @@ export default function SaveTaskButton (props: ICreateTaskButtonProps) {
   
   const [buttonLocked, setButtonLocked] = useState<Boolean>(false);
   const {createTask} = useTaskContext()
+  const {setContainerBlock} = useEditContext();
   const handleClick = async (title: String)=> {
   
   
@@ -29,6 +31,8 @@ export default function SaveTaskButton (props: ICreateTaskButtonProps) {
       await createTask(task)
       setButtonLocked(false);
       props.closeCreateModel()
+      setContainerBlock("")
+      
     }
     else{
       props.showAlert()
