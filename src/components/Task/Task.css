@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+*{
+    font-family: 'Instrument Sans', sans-serif;
+}
+.box {
+  width: 1em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.box:checked {
+  background-color: #72c25a;
+}
+
+/* O ✔ aparece ao marcar */
+.box:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 0.75em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+
