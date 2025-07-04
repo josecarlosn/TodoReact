@@ -41,9 +41,9 @@ export default function EditModal (props: IEditModalProps) {
         <CloseModal name="Abort" closeCreateModal={async ()=>{
             setAlert("hidden")
             setEditVisibility(false)
-            setContainerBlock("")
-            setTitle("");
-            setDescription("");  
+            setContainerBlock("") 
+            setTitle(titleToEdit);
+            setDescription(descriptionToEdit); 
             }
             }/>
 
