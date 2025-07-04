@@ -7,7 +7,8 @@ interface EditTaskContextType{
     titleToEdit: string,
     descriptionToEdit: string,
     editTask: (title: string, description: string)=>void,
-
+    setEditVisibility: (visibility: boolean ) =>void,
+    editVisibility: boolean
 }
 //Preciso criar um Contexto e um Provider
 
@@ -18,12 +19,13 @@ const EditTaskContext = createContext<EditTaskContextType | undefined>(undefined
 export const EditTaskProvider = ({children}:{children: ReactNode}) =>{
     const [titleToEdit, setTitle] = useState("");
     const [descriptionToEdit, setDescription] = useState("")
+    const [editVisibility, setEditVisibility] = useState<boolean>(true)
 
     const editTask = (title: string, description: string)=>{
         setTitle(title);
         setDescription(description);
     }
-    return <EditTaskContext.Provider value={{titleToEdit, descriptionToEdit, editTask}}>{children}</EditTaskContext.Provider>
+    return <EditTaskContext.Provider value={{titleToEdit, descriptionToEdit, editTask, editVisibility, setEditVisibility}}>{children}</EditTaskContext.Provider>
 }
 
 export const useEditContext = () => {

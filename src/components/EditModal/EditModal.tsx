@@ -4,22 +4,21 @@ import CloseModal from '../Buttons/CloseModal/CloseModal';
 import { useEditContext } from '../../Context/EditContext';
 
 export interface IEditModalProps {
-
-    visibility: string ;
 }
 
 export default function EditModal (props: IEditModalProps) {
-    const [modalVisibility, setModalVisibility] = useState(true)
+    const {titleToEdit, descriptionToEdit, setEditVisibility, editVisibility} = useEditContext();
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const visibilityClass: string = "hidden"
     const [alert, setAlert] = useState("hidden")
-    const {titleToEdit, descriptionToEdit} = useEditContext()
+    
+
  
   return (
    
 
-    <form  method='post' className={` bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
+    <form  method='post' className={` bg-white ${editVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
         <div className="bg-white h-screen m-2">
         <div className='border-b-1 border-stone-400'>
             
@@ -32,9 +31,10 @@ export default function EditModal (props: IEditModalProps) {
         </div>
         <div className='flex justify-end m-2 bg-white'><p className='text-[0.7rem] text-stone-600'>{description.length}/155</p></div>
         <div className="flex justify-between m-2">
-        <CloseModal name="Abort" closeCreateModal={()=>{
+        <CloseModal name="Abort" closeCreateModal={async ()=>{
             setAlert("hidden")
-            setModalVisibility(false);
+            await setEditVisibility(false)
+            console.log(editVisibility)
             setTitle("");
             setDescription("");  
             }
