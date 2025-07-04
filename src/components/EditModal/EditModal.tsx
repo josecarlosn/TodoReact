@@ -2,12 +2,12 @@ import * as React from 'react';
 import { useState } from 'react';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
 import { useEditContext } from '../../Context/EditContext';
-
+import './EditModal.css'
 export interface IEditModalProps {
 }
 
 export default function EditModal (props: IEditModalProps) {
-    const {titleToEdit, descriptionToEdit, setEditVisibility, editVisibility} = useEditContext();
+    const {titleToEdit, descriptionToEdit, setEditVisibility, editVisibility, setContainerBlock} = useEditContext();
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const visibilityClass: string = "hidden"
@@ -18,7 +18,7 @@ export default function EditModal (props: IEditModalProps) {
   return (
    
 
-    <form  method='post' className={` bg-white ${editVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
+    <form  method='post' className={` bg-white ${editVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col editModal`}>        
         <div className="bg-white h-screen m-2">
         <div className='border-b-1 border-stone-400'>
             
@@ -33,8 +33,8 @@ export default function EditModal (props: IEditModalProps) {
         <div className="flex justify-between m-2">
         <CloseModal name="Abort" closeCreateModal={async ()=>{
             setAlert("hidden")
-            await setEditVisibility(false)
-            console.log(editVisibility)
+            setEditVisibility(false)
+            setContainerBlock("")
             setTitle("");
             setDescription("");  
             }

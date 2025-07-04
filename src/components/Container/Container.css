@@ -13,3 +13,9 @@
         opacity: 1;
     }
 }
+.blocked{
+    pointer-events: none;
+    opacity: 0.5;
+    filter: blur(10px);
+}
+

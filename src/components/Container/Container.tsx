@@ -6,6 +6,7 @@ import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
 import './Container.css'
 import { Accordion } from '../Accordion/Accordion';
 import { useTaskContext } from '../../Context/TaskContext';
+import { useEditContext } from '../../Context/EditContext';
 
 export interface IContainerProps {
 }
@@ -16,14 +17,11 @@ export default function Container (props: IContainerProps) {
     const [description, setDescription] = useState<string>("");
     const visibilityClass: string = "hidden"
     const [alert, setAlert] = useState("hidden")
-
     const {tasks} = useTaskContext();
+    const {containerBlock} = useEditContext()
 
-    useEffect(()=>{
-      console.log(tasks)
-    },[])
   return (
-    <div className='flex flex-col items-center'>
+    <div className={`flex flex-col items-center ${containerBlock}`}>
         <div className='m-10 '>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
         </div>
