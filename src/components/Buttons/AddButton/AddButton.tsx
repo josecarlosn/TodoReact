@@ -1,13 +1,15 @@
 import * as React from 'react';
 import buttonStyle from '../../GlobalStyles';
+import { useEditContext } from '../../../Context/EditContext';
 export interface IAppProps {
   openCreateModal: any;
   name: string;
 }
 
 export default function App (props: IAppProps) {
-
+  
   return (
+    
       <>
         <button onClick={props.openCreateModal}
             type='button'

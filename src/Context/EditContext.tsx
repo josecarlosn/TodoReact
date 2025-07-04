@@ -21,8 +21,8 @@ const EditTaskContext = createContext<EditTaskContextType | undefined>(undefined
 export const EditTaskProvider = ({children}:{children: ReactNode}) =>{
     const [titleToEdit, setTitle] = useState("");
     const [descriptionToEdit, setDescription] = useState("");
-    const [editVisibility, setEditVisibility] = useState<boolean>(true);
-    const [containerBlock, setContainerBlock] = useState("blocked");
+    const [editVisibility, setEditVisibility] = useState<boolean>(false);
+    const [containerBlock, setContainerBlock] = useState("");
 
     const editTask = (title: string, description: string)=>{
         setTitle(title);

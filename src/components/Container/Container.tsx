@@ -18,12 +18,12 @@ export default function Container (props: IContainerProps) {
     const visibilityClass: string = "hidden"
     const [alert, setAlert] = useState("hidden")
     const {tasks} = useTaskContext();
-    const {containerBlock} = useEditContext()
+    const {containerBlock, setContainerBlock} = useEditContext()
 
   return (
-    <div className={`flex flex-col items-center ${containerBlock}`}>
-        <div className='m-10 '>
-            <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true)}}/>
+    <div className={`flex flex-col items-center `}>
+        <div className={`m-10 ${containerBlock}`}>
+            <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true);setContainerBlock("blocked")}}/>
         </div>
 
         <Accordion/>
@@ -46,6 +46,7 @@ export default function Container (props: IContainerProps) {
               setModalVisibility(false);
               setTitle("");
               setDescription("");  
+              setContainerBlock("")
               }
               }/>
             <CreateTaskButton showAlert={()=>{title === "" ? setAlert("text-red-500 text-[0.8rem]"): setAlert("hidden")}} closeCreateModel = {()=>{
