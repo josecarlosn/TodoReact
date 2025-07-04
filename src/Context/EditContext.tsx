@@ -4,9 +4,10 @@ import api from "../services/api";
 
 
 interface EditTaskContextType{
+    idToEdit: number,
     titleToEdit: string,
     descriptionToEdit: string,
-    editTask: (title: string, description: string)=>void,
+    editTask: (id:number ,title: string, description: string)=>void,
     setEditVisibility: (visibility: boolean ) =>void,
     editVisibility: boolean,
     setContainerBlock: (block: string) =>void,
@@ -21,14 +22,16 @@ const EditTaskContext = createContext<EditTaskContextType | undefined>(undefined
 export const EditTaskProvider = ({children}:{children: ReactNode}) =>{
     const [titleToEdit, setTitle] = useState("");
     const [descriptionToEdit, setDescription] = useState("");
+    const [idToEdit, setId] = useState<number>(-1);
     const [editVisibility, setEditVisibility] = useState<boolean>(false);
     const [containerBlock, setContainerBlock] = useState("");
 
-    const editTask = (title: string, description: string)=>{
+    const editTask = (id: number, title: string, description: string)=>{
+        setId(id);
         setTitle(title);
         setDescription(description);
     }
-    return <EditTaskContext.Provider value={{titleToEdit, descriptionToEdit, editTask, editVisibility, setEditVisibility, setContainerBlock, containerBlock}}>{children}</EditTaskContext.Provider>
+    return <EditTaskContext.Provider value={{idToEdit,titleToEdit, descriptionToEdit, editTask, editVisibility, setEditVisibility, setContainerBlock, containerBlock}}>{children}</EditTaskContext.Provider>
 }
 
 export const useEditContext = () => {

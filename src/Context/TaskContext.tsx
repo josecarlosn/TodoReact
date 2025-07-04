@@ -41,12 +41,12 @@ export const TaskProvider = ({children}:{children: ReactNode}) =>{
         .catch((error)=>console.log("Erro ao deletar tarefa: " + error))
     }
     const updateTask = async (id: number, task: Partial<Omit<TaskType, "id" | "createdAt">>) => {
-        await api.put(`/update/${id}`)
+        await api.put(`/update/${id}`, task)
         .then(()=>{
             console.log(`Tarefa de ID: ${id}, atualizada com sucesso!`);
             fetchTasks()
         })
-        .catch((error)=>console.log("Erro ao atualizar a tarefa: " + error))
+        .catch((error)=>console.log("Erro ao atualizar a tarefa:  ERRO 400"))
     }
     
      useEffect(()=>{

@@ -34,7 +34,7 @@ export default function Task (props: ITaskProps) {
 
             <div className='flex flex-row'>
                 <svg onClick={()=>{
-                  editTask(props.title, props.description);
+                  editTask( props.id, props.title, props.description);
                   setEditVisibility(true);
                   setContainerBlock("blocked")
     
