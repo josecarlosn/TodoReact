@@ -23,7 +23,7 @@ export const DeleteTaskProvider = ({children}:{children: ReactNode}) =>{
     const [titleToDelete, setTitle] = useState("");
     const [descriptionToDelete, setDescription] = useState("");
     const [idToDelete, setId] = useState<number>(-1);
-    const [deleteVisibility, setDeleteVisibility] = useState<boolean>(true);
+    const [deleteVisibility, setDeleteVisibility] = useState<boolean>(false);
     const [containerDeleteBlock, setContainerDeleteBlock] = useState("");
 
     const deleteTask = (id: number, title: string, description: string)=>{
