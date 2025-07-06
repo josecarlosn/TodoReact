@@ -8,9 +8,9 @@ interface TaskContextType{
     fetchTasks: () => Promise<void>,
     deleteTask: (id:number) => Promise<void>,
     createTask: (task: Omit<TaskType, "id" | "createdAt">) => Promise<void>,
-    updateTask: (id: number, task: Partial<Omit<TaskType, "id" | "createdAt">>) => Promise<void>
+    updateTask: (id: number, task: Partial<Omit<TaskType, "id" | "createdAt">>) => Promise<void>,
+    setCompleted: (id: number, completed: boolean)=>Promise<void>
 }
-
 //Preciso criar um Contexto e um Provider
 
 //Contexto

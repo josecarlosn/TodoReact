@@ -4,19 +4,23 @@ import { useState } from 'react';
 import EditModal from '../EditModal/EditModal';
 import { useEditContext } from '../../Context/EditContext';
 import { useDeleteContext } from '../../Context/DeleteContext';
+import { useTaskContext } from '../../Context/TaskContext';
 export interface ITaskProps {
   title: string;
   description: string;
   toggle: any;
   id: number;
   activeIndex: any;
+  completed: boolean;
 }
 
 export default function Task (props: ITaskProps) {
   const [isCheck, setIsCheck] = useState("");
-  const [isVisible, setVisibility] = useState("")
+  const [isVisible, setVisibility] = useState("");
+  
   const {editTask, setEditVisibility, editVisibility, setContainerBlock} = useEditContext()
   const {deleteTask, setDeleteVisibility, setContainerDeleteBlock} = useDeleteContext();
+
   return (
     <>
       <div className={`bg-white w-100 h-auto m-1  mt-2 shadow-sm rounded-xl ${isCheck} self-start`}>
@@ -24,7 +28,9 @@ export default function Task (props: ITaskProps) {
         <div  className='flex flex-row justify-between h-14 p-0 cursor-pointer ' >
             <div  className='flex flex-row gap-1'>
                 <div className='flex items-center m-2'>
-                    <input className='box' type="checkbox" name="" id="" /> 
+                    <input className='box' type="checkbox" onClick={()=>{
+                  
+                    }} name="" id="" /> 
                 </div>
 
                 <div onClick={props.toggle} className='flex flex-col '>

@@ -21,7 +21,7 @@ export function Accordion() {
   return (
     <div className={`${containerBlock} shadow-xl border-10 border-white h-[500px] rounded-2xl overflow-x-hidden custom-scroll pr-4`}>
       {tasks.map((item, index) => (
-            <Task key={index}  activeIndex={activeIndex} title={item.title} description={item.description} toggle={()=>{toggle(index)}} id={item.id} />
+            <Task key={index}  activeIndex={activeIndex} title={item.title} description={item.description} completed={item.completed} toggle={()=>{toggle(index)}} id={item.id} />
       ))}
     </div>
   );
