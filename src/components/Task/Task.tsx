@@ -32,7 +32,7 @@ export default function Task (props: ITaskProps) {
     <>
       <div className={`bg-white w-120 h-auto m-1  mt-2 shadow-sm rounded-xl ${props.completed  ? "checked" : ""} self-start`}>
 
-        <div  className='flex flex-row justify-between h-14 p-0  ' >
+        <div  className='flex flex-row justify-between h-14 p-0 overflow-hidden' >
             <div  className='flex flex-row gap-1 '>
                 <div className='flex items-center m-2'>
                     <input className='box' type="checkbox" onClick={()=>{
@@ -55,12 +55,12 @@ export default function Task (props: ITaskProps) {
                     }} checked={props.completed} name="" id="" /> 
                 </div>
 
-                <div onClick={props.toggle}  className='flex flex-col w-50 cursor-pointer'>
+                <div onClick={props.toggle}  className='flex flex-col w-75 justify-start cursor-pointer'>
                     <p className='text-stone-500 text-[0.6rem]'>{date}  {hour}</p>
-                    <h1 className={`title font-bold h-auto m-0 p-0 ${props.completed ? "text-checked" : "text-stone-700"}  text-[0.75rem]`}>{props.title}</h1>
+                    <h1 className={`title font-bold h-auto m-0 p-0 ${props.completed ? "text-checked" : "text-stone-700"}  text-[0.9rem]`}>{props.title}</h1>
                 </div>
             </div>
-            <div className='flex flex-row  items-center pr-1.5 bg-white'>
+            <div className='flex flex-row  items-center pr-1.5 bg-white rounded-4xl z-30'>
                 <svg onClick={()=>{
                   editTask( props.id, props.title, props.description, props.completed);
                   setEditVisibility(true);
@@ -85,8 +85,8 @@ export default function Task (props: ITaskProps) {
             </div>
               <div className="">
               {props.activeIndex === props.id && (
-                  <div className="px-4 mb-2 text-gray-700 bg-white ml-5">
-                      {props.description}
+                  <div className={`${props.description == "" ? "text-stone-300": ""} px-4 pb-3 text-[0.8rem] text-gray-700 bg-white ml-5 rounded-2xl`}>
+                      {props.description == "" ? "This task has no additional details." : props.description}
                   </div>
 
               )}

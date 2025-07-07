@@ -32,7 +32,7 @@ export default function EditModal (props: IEditModalProps) {
             <p className='rounded-md text-center text-[0.7rem] text-blue-500 border-1 p-[1px] w-12'>Editing</p>
         <div className='border-b-1 border-stone-400'>
             
-            <input maxLength={35} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
+            <input maxLength={40} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
         </div>  
         <div className='h-auto' >
             <textarea maxLength={155} rows={3} onChange={(e)=>{setDescription(e.target.value)}} value={description} id="description" className="resize-none break-words h-full outline-0 text-[1rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task description" required />

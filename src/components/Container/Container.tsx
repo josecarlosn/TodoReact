@@ -32,7 +32,7 @@ export default function Container (props: IContainerProps) {
           <div className="bg-white h-screen m-2 ">
             <div className='border-b-1 border-stone-400'>
               
-              <input maxLength={33} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
+              <input maxLength={40} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
             </div>  
             <div className='h-auto' >
               <textarea maxLength={155} rows={3} onChange={(e)=>{setDescription(e.target.value)}} value={description} id="description" className="resize-none break-words h-full outline-0 text-[1rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task description" required />
