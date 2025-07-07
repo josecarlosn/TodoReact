@@ -21,7 +21,7 @@ export default function Container (props: IContainerProps) {
     const {containerBlock, setContainerBlock} = useEditContext()
 
   return (
-    <div className={`flex flex-col items-center `}>
+    <div className={`flex flex-col items-center justify-center`}>
         <div className={`m-10 ${containerBlock}`}>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true);setContainerBlock("blocked")}}/>
         </div>
@@ -29,7 +29,7 @@ export default function Container (props: IContainerProps) {
         <Accordion/>
 
         <form  method='post' className={` bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
-          <div className="bg-white h-screen m-2">
+          <div className="bg-white h-screen m-2 ">
             <div className='border-b-1 border-stone-400'>
               
               <input maxLength={50} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />

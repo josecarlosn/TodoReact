@@ -3,5 +3,5 @@ export default interface TaskType{
     title: string,
     description: string,
     completed: boolean,
-    createdAt: Date
+    creationDate: Date;
 }

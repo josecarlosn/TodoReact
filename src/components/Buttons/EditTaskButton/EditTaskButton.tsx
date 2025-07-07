@@ -5,6 +5,7 @@ import type TaskType from '../../../Types/TaskType';
 import { useTaskContext } from '../../../Context/TaskContext';
 
 export interface IEditTaskButtonProps {
+    completed: boolean | undefined;
     name: string,
     id:number,
     title: string,
@@ -26,6 +27,7 @@ export default function EditTaskButton (props: IEditTaskButtonProps) {
           const task: Partial<Omit<TaskType, "id" | "createdAt">> = {
             title: props.title,
             description: props.description,
+            completed: props.completed
           } 
           await updateTask(props.id ,task)
           setButtonLocked(false);

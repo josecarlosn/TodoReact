@@ -5,6 +5,7 @@ import EditModal from '../EditModal/EditModal';
 import { useEditContext } from '../../Context/EditContext';
 import { useDeleteContext } from '../../Context/DeleteContext';
 import { useTaskContext } from '../../Context/TaskContext';
+
 export interface ITaskProps {
   title: string;
   description: string;
@@ -12,6 +13,7 @@ export interface ITaskProps {
   id: number;
   activeIndex: any;
   completed: boolean;
+  createdAt: string;
 }
 
 export default function Task (props: ITaskProps) {
@@ -20,13 +22,18 @@ export default function Task (props: ITaskProps) {
   const {updateTask} = useTaskContext()
   const {editTask, setEditVisibility, editVisibility, setContainerBlock} = useEditContext()
   const {deleteTask, setDeleteVisibility, setContainerDeleteBlock} = useDeleteContext();
-
+  const time = new Date(props.createdAt)
+  const date = time.toLocaleDateString("pt-br")
+  const hour = time.toLocaleTimeString("pt-br",{
+  hour: '2-digit',
+  minute: '2-digit',
+})
   return (
     <>
       <div className={`bg-white w-100 h-auto m-1  mt-2 shadow-sm rounded-xl ${props.completed  ? "checked" : ""} self-start`}>
 
-        <div  className='flex flex-row justify-between h-14 p-0 cursor-pointer ' >
-            <div  className='flex flex-row gap-1'>
+        <div  className='flex flex-row justify-between h-14 p-0  ' >
+            <div  className='flex flex-row gap-1 '>
                 <div className='flex items-center m-2'>
                     <input className='box' type="checkbox" onClick={()=>{
                       if(props.completed){
@@ -48,14 +55,14 @@ export default function Task (props: ITaskProps) {
                     }} checked={props.completed} name="" id="" /> 
                 </div>
 
-                <div onClick={props.toggle} className='flex flex-col '>
-                    <p className='text-stone-500 text-[0.6rem]'>21/10/2025</p>
-                    <h1 className={`title font-bold ${props.completed ? "text-checked" : "text-stone-700"}  text-[1rem]`}>{props.title}</h1>
+                <div onClick={props.toggle}  className='flex flex-col w-50 cursor-pointer'>
+                    <p className='text-stone-500 text-[0.6rem]'>{date}  {hour}</p>
+                    <h1 className={`title font-bold m-0 p-0 ${props.completed ? "text-checked" : "text-stone-700"}  text-[1rem]`}>{props.title}</h1>
                 </div>
             </div>
             <div className='flex flex-row  items-center pr-1.5'>
                 <svg onClick={()=>{
-                  editTask( props.id, props.title, props.description);
+                  editTask( props.id, props.title, props.description, props.completed);
                   setEditVisibility(true);
                   setContainerBlock("blocked")
     
@@ -78,7 +85,7 @@ export default function Task (props: ITaskProps) {
             </div>
               <div className="">
               {props.activeIndex === props.id && (
-                  <div className="px-4 py-2 text-gray-700 bg-white ">
+                  <div className="px-4 mb-2 text-gray-700 bg-white ml-5">
                       {props.description}
                   </div>
 

@@ -9,9 +9,10 @@ export interface IEditModalProps {
 }
 
 export default function EditModal (props: IEditModalProps) {
-    const {titleToEdit, descriptionToEdit, setEditVisibility, editVisibility, setContainerBlock} = useEditContext();
+    const {titleToEdit, descriptionToEdit, completedToEdit, setEditVisibility, editVisibility, setContainerBlock} = useEditContext();
     const [title, setTitle] = useState(titleToEdit);
     const [description, setDescription] = useState(descriptionToEdit);
+    const [completed, setCompleted] = useState(completedToEdit);
     const visibilityClass: string = "hidden"
     const [alert, setAlert] = useState("hidden")
     const {idToEdit} = useEditContext()
@@ -20,13 +21,15 @@ export default function EditModal (props: IEditModalProps) {
     useEffect(() => {
         setTitle(titleToEdit);
         setDescription(descriptionToEdit);
-    }, [titleToEdit, descriptionToEdit]);
+        setCompleted(completedToEdit)
+        
+    }, [titleToEdit, descriptionToEdit, completedToEdit]);
   return (
    
 
     <form  method='post' className={` bg-white ${editVisibility ? "in" : visibilityClass} absolute shadow-xl w-[400px] h-[250px] rounded-2xl flex flex-col editModal`}>        
-        <div className="bg-white h-screen m-2 pt-5">
-            <p className='rounded-md text-[0.7rem] text-blue-500 border-1 p-1 w-12'>Editing</p>
+        <div className="bg-white h-screen m-2 pt-5 ">
+            <p className='rounded-md text-center text-[0.7rem] text-blue-500 border-1 p-[1px] w-12'>Editing</p>
         <div className='border-b-1 border-stone-400'>
             
             <input maxLength={50} onChange={(e) =>{setTitle(e.target.value)}} value={title} type="text" id="title" className="outline-0 text-[1.3rem] block w-full  dark:placeholder-gray-400 text-stone-700" placeholder="Task title" required />
@@ -43,14 +46,16 @@ export default function EditModal (props: IEditModalProps) {
             setEditVisibility(false)
             setContainerBlock("") 
             setTitle(titleToEdit);
-            setDescription(descriptionToEdit); 
+            setDescription(descriptionToEdit);
+            
             }
             }/>
-            <EditTaskButton name={"Save"} title={title} description={description} id={idToEdit} closeCreateModel = {()=>{
+            <EditTaskButton name={"Save"} title={title} description={description} id={idToEdit} completed={completedToEdit} closeCreateModel = {()=>{
               setContainerBlock("")
               setEditVisibility(false)
               setTitle("");
               setDescription("");  
+              setCompleted(completed)
             }}/>
         </div>
         

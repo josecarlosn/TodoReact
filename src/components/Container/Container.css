@@ -1,9 +1,9 @@
 .in{
     opacity: 0;
-    animation: in 0.7s ease forwards;
+    animation: in 0.3s ease forwards;
 }
 .out{
-    animation: out 0.7s ease forwards;
+    animation: out 0.3s ease forwards;
 }
 @keyframes in {
     0%{

@@ -14,17 +14,14 @@ export default function DeleteModal (props: IDeleteModalProps) {
     const visibilityClass: string = "hidden";
     const {deleteTask} = useTaskContext()
   return (
-      <div  className={` bg-white ${deleteVisibility ? "in" : visibilityClass} absolute shadow-xl w-[450px] h-[250px] rounded-2xl flex flex-col`}>        
+      <div  className={` bg-white ${deleteVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
             <div className="bg-white h-screen m-2 flex items-center justify-center text-center flex-col">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-12 text-red-600">
                   <path fill-rule="evenodd" d="M6.701 2.25c.577-1 2.02-1 2.598 0l5.196 9a1.5 1.5 0 0 1-1.299 2.25H2.804a1.5 1.5 0 0 1-1.3-2.25l5.197-9ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 1 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
                 </svg>
 
-                <h2 className='text-[1rem]'>This task will be permanently deleted. Do you wish to continue?</h2>
-                <div className='bg-red-200 text-[0.8rem] text-red-600 font-medium mt-3 p-2 rounded-xl shadow-md'>
-                  <p>Task: {titleToDelete}</p>
-                  <p>Description: {descriptionToDelete}</p>
-                </div>
+                <h2 className='text-[1rem] font-bold text-stone-800'>This task will be permanently deleted <br/> Do you wish to continue?</h2>
+             
   
             </div>
             <div className="flex justify-between m-2">
