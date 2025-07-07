@@ -18,11 +18,11 @@ export function Accordion() {
     setActiveIndex(activeIndex === index ? null : index);
   };
   return (
-    <div className={`${containerBlock} shadow-xl border-10 border-white outline-1 outline-gray-100 h-[500px] rounded-2xl overflow-x-hidden custom-scroll pr-4`}>
+    <div className={`${containerBlock} ${tasks.length == 0 ? "w-120 flex text-stone-400 justify-center" : "w-auto"} shadow-xl border-10 border-white outline-1 outline-gray-100 h-[500px] rounded-2xl overflow-x-hidden custom-scroll pr-4`}>
       {tasks.map((item, index) => (
             <Task key={index}  activeIndex={activeIndex} title={item.title} description={item.description} completed={item.completed} toggle={()=>{toggle(item.id)}} id={item.id} createdAt={item.creationDate == undefined ? "indefinido" : item.creationDate.toString()}/>
       ))}
-      
+      <p className={`${tasks.length == 0 ? "text-center m-10" : ""}`}>{tasks.length == 0 ? `No tasks yet. Start by creating your first one!` : ""}</p>
     </div>
   );
 }
