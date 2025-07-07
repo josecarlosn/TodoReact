@@ -17,7 +17,7 @@ export interface ITaskProps {
 export default function Task (props: ITaskProps) {
   const [isCheck, setIsCheck] = useState("");
   const [isVisible, setVisibility] = useState("");
-  
+  const {updateTask} = useTaskContext()
   const {editTask, setEditVisibility, editVisibility, setContainerBlock} = useEditContext()
   const {deleteTask, setDeleteVisibility, setContainerDeleteBlock} = useDeleteContext();
 
@@ -29,8 +29,23 @@ export default function Task (props: ITaskProps) {
             <div  className='flex flex-row gap-1'>
                 <div className='flex items-center m-2'>
                     <input className='box' type="checkbox" onClick={()=>{
-                  
-                    }} name="" id="" /> 
+                      if(props.completed){
+                        var task = {
+                          title: props.title,
+                          description: props.description,
+                          completed: false
+                        }
+                        updateTask(props.id, task);
+                      }else if(props.completed == false){
+                        var task = {
+                          title: props.title,
+                          description: props.description,
+                          completed: true
+                        }
+                        updateTask(props.id ,task);
+                      }
+                      
+                    }} checked={props.completed} name="" id="" /> 
                 </div>
 
                 <div onClick={props.toggle} className='flex flex-col '>

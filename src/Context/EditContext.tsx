@@ -11,7 +11,7 @@ interface EditTaskContextType{
     setEditVisibility: (visibility: boolean ) =>void,
     editVisibility: boolean,
     setContainerBlock: (block: string) =>void,
-    containerBlock: string
+    containerBlock: string,
 }
 //Preciso criar um Contexto e um Provider
 
@@ -22,6 +22,7 @@ const EditTaskContext = createContext<EditTaskContextType | undefined>(undefined
 export const EditTaskProvider = ({children}:{children: ReactNode}) =>{
     const [titleToEdit, setTitle] = useState("");
     const [descriptionToEdit, setDescription] = useState("");
+    const [completed, setCompleted] = useState(false)
     const [idToEdit, setId] = useState<number>(-1);
     const [editVisibility, setEditVisibility] = useState<boolean>(false);
     const [containerBlock, setContainerBlock] = useState("");
