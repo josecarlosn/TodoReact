@@ -2,10 +2,28 @@
 *{
     font-family: 'Instrument Sans', sans-serif;
 }
+.text-checked{
+  color: #72c25a;
+}
+.checked{
+    color: #72c25a;
+    animation: check 0.2s ease forwards;
+}
+@keyframes check{
+  0%{
+
+    border-left: 0px solid #72c25a;
+  }
+  100%{
+    border: 1px solid #72c25a;
+    border-left: 14px solid #72c25a;
+
+  }
+}
 .box {
   width: 1em;
   height: 1em;
-  background-color: white;
+  background-color: rgb(245, 248, 255);
   border-radius: 50%;
   vertical-align: middle;
   border: 1px solid #ccc;

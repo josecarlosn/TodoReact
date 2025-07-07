@@ -15,7 +15,7 @@ export interface ITaskProps {
 }
 
 export default function Task (props: ITaskProps) {
-  const [isCheck, setIsCheck] = useState("");
+  const [isCheck, setIsCheck] = useState("checked");
   const [isVisible, setVisibility] = useState("");
   const {updateTask} = useTaskContext()
   const {editTask, setEditVisibility, editVisibility, setContainerBlock} = useEditContext()
@@ -23,7 +23,7 @@ export default function Task (props: ITaskProps) {
 
   return (
     <>
-      <div className={`bg-white w-100 h-auto m-1  mt-2 shadow-sm rounded-xl ${isCheck} self-start`}>
+      <div className={`bg-white w-100 h-auto m-1  mt-2 shadow-sm rounded-xl ${props.completed  ? "checked" : ""} self-start`}>
 
         <div  className='flex flex-row justify-between h-14 p-0 cursor-pointer ' >
             <div  className='flex flex-row gap-1'>
@@ -50,7 +50,7 @@ export default function Task (props: ITaskProps) {
 
                 <div onClick={props.toggle} className='flex flex-col '>
                     <p className='text-stone-500 text-[0.6rem]'>21/10/2025</p>
-                    <h1 className='title font-bold text-stone-700 text-[1rem]'>{props.title}</h1>
+                    <h1 className={`title font-bold ${props.completed ? "text-checked" : "text-stone-700"}  text-[1rem]`}>{props.title}</h1>
                 </div>
             </div>
             <div className='flex flex-row  items-center pr-1.5'>
