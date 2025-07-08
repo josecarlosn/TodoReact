@@ -2,9 +2,9 @@ import * as React from 'react';
 import './Task.css'
 import { useState } from 'react';
 import EditModal from '../EditModal/EditModal';
-import { useEditContext } from '../../Context/EditContext';
-import { useDeleteContext } from '../../Context/DeleteContext';
-import { useTaskContext } from '../../Context/TaskContext';
+import { useEditContext } from '../../context/EditContext';
+import { useDeleteContext } from '../../context/DeleteContext';
+import { useTaskContext } from '../../context/TaskContext';
 
 export interface ITaskProps {
   title: string;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
-import { useEditContext } from '../../Context/EditContext';
-import { useDeleteContext } from '../../Context/DeleteContext';
+import { useEditContext } from '../../context/EditContext';
+import { useDeleteContext } from '../../context/DeleteContext';
 import buttonStyle from '../GlobalStyles';
-import { useTaskContext } from '../../Context/TaskContext';
+import { useTaskContext } from '../../context/TaskContext';
 
 export interface IDeleteModalProps {
 }

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import Task from "../Task/Task";
 import './Accordion.css'
-import { useTaskContext } from "../../Context/TaskContext";
-import { useEditContext } from "../../Context/EditContext";
+import { useTaskContext } from "../../context/TaskContext";
+import { useEditContext } from "../../context/EditContext";
 interface AccordionItem {
   title: string;
   description: string;

@@ -5,8 +5,8 @@ import CloseModal from '../Buttons/CloseModal/CloseModal';
 import CreateTaskButton from '../Buttons/CreateTaskButton/CreateTaskButton';
 import './Container.css'
 import { Accordion } from '../Accordion/Accordion';
-import { useTaskContext } from '../../Context/TaskContext';
-import { useEditContext } from '../../Context/EditContext';
+import { useTaskContext } from '../../context/TaskContext';
+import { useEditContext } from '../../context/EditContext';
 
 export interface IContainerProps {
 }
@@ -25,7 +25,6 @@ export default function Container (props: IContainerProps) {
         <div className={`m-10 ${containerBlock}`}>
             <AddButton name="Add Task" openCreateModal={()=>{setModalVisibility(true);setContainerBlock("blocked")}}/>
         </div>
-
         <Accordion/>
 
         <form  method='post' className={` bg-white ${modalVisibility ? "in" : visibilityClass} absolute shadow-xl w-[350px] h-[200px] rounded-2xl flex flex-col`}>        
@@ -62,7 +61,8 @@ export default function Container (props: IContainerProps) {
               <span className='ml-1'> Title is a required field.</span>
           </div>
         </form>
-        
+                <p className='p-1 text-[0.8rem] text-stone-400'>Developed by José Carlos Neto</p>
+
     </div>
   );
 }

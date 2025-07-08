@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import CloseModal from '../Buttons/CloseModal/CloseModal';
-import { useEditContext } from '../../Context/EditContext';
+import { useEditContext } from '../../context/EditContext';
 import './EditModal.css'
 import EditTaskButton from '../Buttons/EditTaskButton/EditTaskButton';
-import { useTaskContext } from '../../Context/TaskContext';
+import { useTaskContext } from '../../context/TaskContext';
 export interface IEditModalProps {
 }
 
@@ -41,7 +41,7 @@ export default function EditModal (props: IEditModalProps) {
         </div>
         <div className='flex justify-end m-2 bg-white'><p className='text-[0.7rem] text-stone-600'>{description.length}/155</p></div>
         <div className="flex justify-between m-2">
-        <CloseModal name="Abort" closeCreateModal={async ()=>{
+        <CloseModal name="Cancel" closeCreateModal={async ()=>{
             setAlert("hidden")
             setEditVisibility(false)
             setContainerBlock("") 

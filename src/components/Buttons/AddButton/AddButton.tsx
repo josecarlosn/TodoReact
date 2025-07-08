@@ -1,6 +1,6 @@
 import * as React from 'react';
 import buttonStyle from '../../GlobalStyles';
-import { useEditContext } from '../../../Context/EditContext';
+import { useEditContext } from '../../../context/EditContext';
 export interface IAppProps {
   openCreateModal: any;
   name: string;

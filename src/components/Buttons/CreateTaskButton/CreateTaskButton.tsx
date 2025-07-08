@@ -1,5 +1,5 @@
-import { useEditContext } from '../../../Context/EditContext';
-import { useTaskContext } from '../../../Context/TaskContext';
+import { useEditContext } from '../../../context/EditContext';
+import { useTaskContext } from '../../../context/TaskContext';
 import type TaskType from '../../../Types/TaskType';
 import buttonStyle from '../../GlobalStyles';
 import { useState } from 'react';

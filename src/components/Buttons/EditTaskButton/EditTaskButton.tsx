@@ -2,7 +2,7 @@ import * as React from 'react';
 import buttonStyle from '../../GlobalStyles';
 import { useState } from 'react';
 import type TaskType from '../../../Types/TaskType';
-import { useTaskContext } from '../../../Context/TaskContext';
+import { useTaskContext } from '../../../context/TaskContext';
 
 export interface IEditTaskButtonProps {
     completed: boolean | undefined;
