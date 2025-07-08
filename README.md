@@ -1,54 +1,49 @@
-# React + TypeScript + Vite
+# To Do List - Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta é a interface gráfica de uma aplicação fullstack desenvolvida com fins didáticos. Ela permite a criação, visualização e gerenciamento de tarefas de maneira simples e intuitiva.
 
-Currently, two official plugins are available:
+🔗 Veja o repositório do backend aqui → [Todo Backend](https://github.com/josecarlosn/TodoSpring) 💻
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+*   React + TypeScript + Vite 
+*   Tailwind CSS
+*   Axios
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Pré-requisitos
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+*   [Node.js](https://nodejs.org/en/ ) (versão LTS recomendada)
+*   [npm](https://www.npmjs.com/ ) ou [Yarn](https://yarnpkg.com/ )
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Como Rodar o Projeto
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/josecarlosn/TodoReact.git
+    cd TodoReact
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+3.  **Configure o Backend:**
+
+    Certifique-se de que o [**backend**]('https://github.com/josecarlosn/TodoSpring') da aplicação esteja rodando e acessível na URL configurada. `http://localhost:8080`
+
+    Acesse o repositório do back-end do projeto abaixo.
+
+    [Repositório back-end]('https://github.com/josecarlosn/TodoSpring') 💻
+
+4.  **Inicie a aplicação:**
+    ```bash
+    npm run dev
+    # ou
+    yarn dev
+    ```
+    A aplicação será aberta no seu navegador em `http://localhost:5173`.
